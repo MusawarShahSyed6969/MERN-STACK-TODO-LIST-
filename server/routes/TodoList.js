@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router();
 
-const  {GetAllListController,PostListController, UpdateSelectedList, DeleteSelectedList, CompleteSelectedList} = require("../controller/TodoListController")
+const  {GetAllListController,PostListController, UpdateSelectedList, DeleteSelectedList, CompleteSelectedList} = require("../Controller/TodoListController")
 
 
 
