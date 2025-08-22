@@ -2,9 +2,12 @@ import {React, useState } from "react";
 import axios from "axios";
 import { toast } from 'react-toastify';
 
+const BASE_URL = "https://mern-stack-todo-list-five.vercel.app/api"
+
 export const HandleDelete = async (id,setTodolist ) => {
+  
     try {
-      const res = await axios.delete(`http://192.168.100.155:5000/api/deletetodo/${id}`);
+      const res = await axios.delete(`${BASE_URL}/deletetodo/${id}`);
       console.log(res.data);
 
       setTodolist(prev => prev.filter(t => t._id !== id));
@@ -23,7 +26,7 @@ export const HandleDelete = async (id,setTodolist ) => {
 
     try {
         
-        const res = await axios.patch(`http://192.168.100.155:5000/api/completetodo/${id}`,{isCompleted:!isComplete})
+        const res = await axios.patch(`${BASE_URL}/completetodo/${id}`,{isCompleted:!isComplete})
 
         console.log(res);
 

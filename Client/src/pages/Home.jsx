@@ -9,6 +9,8 @@ import EditIcon2 from "../../public/edit2.png"
 import { HandleDelete, HandleonComplete } from "../components/Helpers"
 import { toast } from 'react-toastify';
 
+const BASE_URL = "https://mern-stack-todo-list-five.vercel.app/api"
+
 const Home = () => {
 
   // Holds the text typed into the input (either new todo OR updated one)
@@ -25,7 +27,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://192.168.100.155:5000/api/gettodo");
+        const res = await axios.get(`${BASE_URL}/gettodo`);
         console.log(res.data.TodoList);
 
         setTodolist(res.data.TodoList)
@@ -55,7 +57,7 @@ const Home = () => {
 
     try {
       if (EditID) {   // EDIT MODE
-        const res = await axios.put(`http://192.168.100.155:5000/api/updatetodo/${EditID}`, {
+        const res = await axios.put(`${BASE_URL}/updatetodo/${EditID}`, {
           Todo: TodoSender
         })
 
@@ -68,7 +70,7 @@ const Home = () => {
 
       } else {   // ADD MODE
 
-        const res = await axios.post("http://192.168.100.155:5000/api/posttodo", {
+        const res = await axios.post(`${BASE_URL}/posttodo`, {
           Todo: TodoSender
         })
 
