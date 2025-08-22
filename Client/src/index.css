@@ -1,0 +1,255 @@
+:root{
+    --BG_Color:#101213;
+    --second_Color:#17FFC5;
+    --list_Color:#1C1D1F;
+
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--BG_Color);
+}
+.home-Container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+.logo{
+    transition: transform 0.3s ease;
+}
+.logo h1{
+    color: var(--second_Color);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 800;
+    font-size: 5vw;
+    text-decoration: underline ;
+    transition: transform 0.3 ease;
+}
+
+.logo:hover{
+    transform:  scale(1.05); /* Slight lift and zoom */
+    cursor: pointer;
+}
+
+.middle-Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding-top: 30px;
+    /* background: rgb(238, 236, 236); */
+    width: 80vw;
+    height: 50vh;
+
+    /* Shadow styles */
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); */
+    border-radius: 10px; 
+}
+
+.under_middle {
+    display: flex;
+    flex-wrap: wrap; /* stack on small screens */
+   
+    width: 100%;
+    justify-content: center;
+}
+.under_middle button{
+    background-color: var(--second_Color);  
+    border-radius: 0 25px 25px 0;
+    border: none;
+    padding: 0.8em 1.5em; /* uses em for scaling with text size */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: scale 0.3s ease;
+    font-size: clamp(12px, 1.5vw, 18px); /* responsive font size */
+    max-width: 100%; /* prevent overflow */
+    flex-shrink: 0;  /* prevents button from squishing too much */
+    cursor: pointer;
+    
+}
+
+
+.Todo_Input {
+    flex: 1;                  /* grow to fill space */
+    min-width: 250px;          /* never go below this */
+    max-width: 500px;          /* prevent being too wide */
+    padding: 15px 14px;
+    border: 2px solid #37393A;
+    border-radius: 3vw 0 0 3vw;
+    background-color: var(--BG_Color);
+    color: white;
+}
+.Todo_Input:focus {
+    outline: none; /* removes default browser outline */
+    box-shadow: 0 0 0 2px var(--second_Color); /* custom glow */
+    border-color: var(--second_Color); /* highlight border */
+}
+
+.list-Container{
+    /* background: blue; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50vw;
+    align-items: center;
+    
+}
+
+.list-items{
+    background: var(--list_Color);
+    width: 20vw;
+    /* border: 2px green; */
+    display: flex;
+    justify-content: space-between;
+    width: 40vw;
+    padding: 15px;
+    border-radius: 1.5vw;
+    color: white;
+    
+    transition: background-color 0.3s ease,transform  0.3s ease ,box-shadow 0.3s ease;
+}
+
+.under_listItems{
+    display: flex;
+    align-items: center;
+    flex: 1;  
+    min-width: 0;  
+}
+
+ .todo_text{
+   
+    font-size: clamp(0.9em, 1.2vw, 1em); /* responsive font size */
+    color: white;
+    margin: 0;
+    white-space: normal; /* allow wrapping */
+    overflow-wrap: break-word; /* break long words if needed */
+    flex: 1; /* take remaining space */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    
+ 
+} 
+
+.line-through{
+    text-decoration: line-through ;
+
+}
+
+
+.under_listItems button {
+    color: var(--second_Color);
+    margin-right: 1vw; /* responsive spacing */
+    border-radius: 50%;
+    border: 0.3vw solid var(--second_Color);
+    background: transparent;
+    height: 2vw; /* scales with screen width */
+    width: 2.5vw;  /* same as height for perfect circle */
+    min-height: 16px; /* prevents being too small on tiny screens */
+    min-width: 16px;
+    max-height: 28px; /* optional: prevents being too large */
+    max-width: 28px;
+    box-sizing: border-box; /* keeps border from distorting size */
+    cursor: pointer;
+}
+
+.list-items:hover{
+
+    transform: translateY(-5px) scale(1.05); /* Slight lift and zoom */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+    cursor: pointer;
+}
+
+.action-btn{
+    display: flex;
+
+}
+
+.action-btn img{
+    filter: grayscale( 100);
+
+}
+
+.short_img{
+    width: 3vw;
+    height: 3vh;
+    object-fit: contain; /* Keeps aspect ratio */
+ 
+}
+
+.quick_btn{
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .edit_btn img {
+    filter: invert(100);
+  }
+
+  .active-edit{
+    background-color: var(--second_Color);
+    border-radius: 5px;
+  }
+
+
+/* RESPONSIVE */
+
+@media (max-width: 720px) {
+    .list-items{
+        
+        width: 80vw;
+       
+    }
+
+    .under_middle {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    
+    .under_middle button {
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    .Todo_Input{
+        min-width: 5%;          /* never go below this */
+        max-width: 100%;          /* prevent being too wide */
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    .logo h1{
+        font-size: 10vw;
+    }
+    
+    .under_middle button{
+        font-size: 3vw;
+        
+    }
+
+    .short_img{
+        width: 5vw;
+        height: 5vh;
+       
+    }
+
+    .action-btn{
+        gap: 1.3rem;
+    }
+    
+}
